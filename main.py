@@ -38,7 +38,7 @@ def run(training_mode, pretrained):
                      double_dq=True,
                      pretrained=pretrained)
 
-    num_episodes = 20000
+    num_episodes = 2
     env.reset()
     total_rewards = []
 
