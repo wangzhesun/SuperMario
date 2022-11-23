@@ -38,7 +38,7 @@ def run(training_mode, pretrained):
                      double_dq=True,
                      pretrained=pretrained)
 
-    num_episodes = 10000
+    num_episodes = 20000
     env.reset()
     total_rewards = []
 
@@ -70,7 +70,7 @@ def run(training_mode, pretrained):
 
         total_rewards.append(total_reward)
 
-        print("Total reward after episode {} is {}".format(ep_num + 1, total_rewards[-1]))
+        print("Total reward after episode {} / {} is {}".format(ep_num + 1, num_episodes, total_rewards[-1]))
         num_episodes += 1
 
     if training_mode:
@@ -98,4 +98,5 @@ def run(training_mode, pretrained):
         plt.plot([0 for _ in range(500)] + np.convolve(total_rewards, np.ones((500,)) / 500, mode="valid").tolist())
         plt.show()
 
-run(training_mode=True, pretrained=False)
+if __name__=='__main__':
+    run(training_mode=True, pretrained=False)
